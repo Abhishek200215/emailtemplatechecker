@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Email Template Health Checker | HTML Email Compatibility & Accessibility Tool</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Analyze HTML email templates for compatibility, accessibility, performance, and best practices. Get instant scores, live previews, and actionable fixes." />
+  <meta name="keywords" content="email template checker, html email tester, email compatibility checker, outlook email issues, email accessibility checker" />
+  <meta name="author" content="Email Template Health Checker" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://yourdomain.com/email-template-health-checker" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Email Template Health Checker" />
+  <meta property="og:description" content="Check HTML email compatibility, accessibility, and best practices with real-time analysis and live previews." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com/email-template-health-checker" />
+  <meta property="og:image" content="https://yourdomain.com/assets/og-email-checker.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Email Template Health Checker" />
+  <meta name="twitter:description" content="Instant HTML email analysis with scores, issues, and fixes." />
+  <meta name="twitter:image" content="https://yourdomain.com/assets/og-email-checker.png" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Email Template Health Checker",
+    "url": "https://yourdomain.com/email-template-health-checker",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "description": "A tool to analyze HTML email templates for compatibility, accessibility, and best practices."
+  }
+  </script>
+</head>
+
+<body>
+<main class="container" role="main">
+  <section class="sr-only">
+  <h2>HTML Email Compatibility Checker</h2>
+  <p>
+    This tool helps developers and marketers test HTML email templates for Outlook,
+    Gmail, Apple Mail compatibility, accessibility compliance, and performance best practices.
+  </p>
+</section>
+
+    <header>
+      <h1><i class="fas fa-envelope"></i> Email Template Health Checker</h1>
+      <p class="subtitle">Real-time analysis for HTML email compatibility, accessibility, and best practices</p>
+    </header>
+
+    <div class="dashboard">
+      <div class="left-panel">
+        <div class="input-section">
+          <div class="section-header">
+            <h2><i class="fas fa-code"></i> HTML Input</h2>
+            <div class="toolbar">
+              <button id="formatBtn" class="tool-btn" title="Format Code">
+                <i class="fas fa-indent"></i>
+              </button>
+              <button id="clearBtn" class="tool-btn" title="Clear">
+                <i class="fas fa-trash"></i>
+              </button>
+              <button id="sampleBtn" class="tool-btn" title="Load Sample">
+                <i class="fas fa-file-code"></i>
+              </button>
+              <button id="importBtn" class="tool-btn" title="Import File">
+                <i class="fas fa-file-import"></i>
+              </button>
+            </div>
+          </div>
+          <textarea id="emailHtml" placeholder="Paste or type your email HTML here...&#10;&#10;Tip: Start typing or paste to see real-time analysis"></textarea>
+          <div class="char-count">
+            <span id="charCount">0</span> characters
+            <button id="checkBtn" class="btn-primary" style="margin-left: auto;">
+              <i class="fas fa-play"></i> Check Now
+            </button>
+          </div>
+        </div>
+
+        <div class="preview-section">
+          <div class="section-header">
+            <h2><i class="fas fa-eye"></i> Live Preview</h2>
+            <div class="preview-toolbar">
+              <button class="preview-mode active" data-mode="desktop">
+                <i class="fas fa-desktop"></i> Desktop
+              </button>
+              <button class="preview-mode" data-mode="mobile">
+                <i class="fas fa-mobile-alt"></i> Mobile
+              </button>
+              <button class="preview-mode" data-mode="outlook">
+                <i class="fab fa-microsoft"></i> Outlook
+              </button>
+            </div>
+          </div>
+          <div class="preview-container">
+            <iframe id="previewFrame"></iframe>
+            <div class="preview-placeholder" id="previewPlaceholder">
+              <i class="fas fa-envelope-open-text"></i>
+              <p>Preview will appear here</p>
+              <small>Paste HTML or click "Load Sample" to see preview</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-panel">
+        <div class="score-card">
+          <div class="score-circle">
+            <svg width="120" height="120">
+              <circle class="score-bg" cx="60" cy="60" r="54"></circle>
+              <circle class="score-progress" cx="60" cy="60" r="54"></circle>
+            </svg>
+            <div class="score-text">
+              <span id="score">0</span>
+              <small>/100</small>
+            </div>
+          </div>
+          <div class="score-info">
+            <h3 id="grade">Grade: F</h3>
+            <div class="score-stats">
+              <div class="stat">
+                <span class="stat-value" id="passedCount">0</span>
+                <span class="stat-label">Passed</span>
+              </div>
+              <div class="stat">
+                <span class="stat-value" id="warningCount">0</span>
+                <span class="stat-label">Warnings</span>
+              </div>
+              <div class="stat">
+                <span class="stat-value" id="errorCount">0</span>
+                <span class="stat-label">Errors</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="categories-section">
+          <h2><i class="fas fa-chart-bar"></i> Category Breakdown</h2>
+          <div id="categories"></div>
+        </div>
+
+        <div class="issues-section">
+          <div class="section-header">
+            <h2><i class="fas fa-exclamation-triangle"></i> Issues</h2>
+            <div class="filter-buttons">
+              <button class="filter-btn active" data-filter="all">All</button>
+              <button class="filter-btn" data-filter="error">Errors</button>
+              <button class="filter-btn" data-filter="warning">Warnings</button>
+              <button class="filter-btn" data-filter="info">Info</button>
+            </div>
+          </div>
+          <div class="issues-list" id="issues">
+            <div class="empty-state">
+              <i class="fas fa-check-circle"></i>
+              <p>No issues found. Your HTML looks good!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="quick-fixes">
+          <h2><i class="fas fa-magic"></i> Quick Fixes</h2>
+          <div id="quickFixes">
+            <div class="empty-state">
+              <i class="fas fa-wrench"></i>
+              <p>No fixes needed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-info">
+        <span><i class="fas fa-clock"></i> Last checked: <span id="lastChecked">Never</span></span>
+        <span><i class="fas fa-history"></i> Analysis time: <span id="analysisTime">0ms</span></span>
+      </div>
+      <div class="footer-actions">
+        <button id="exportBtn" class="btn-secondary">
+          <i class="fas fa-download"></i> Export Report
+        </button>
+        <button id="shareBtn" class="btn-secondary">
+          <i class="fas fa-share-alt"></i> Share
+        </button>
+        <button id="settingsBtn" class="btn-secondary">
+          <i class="fas fa-cog"></i> Settings
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="rules.js"></script>
+  <script src="checker.js"></script>
+</body>
+</html>
